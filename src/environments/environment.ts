@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  url_api:'http://3.22.169.138:8080/'
 //  3.22.169.138:8080/registro?name=libro&autor=autor
 
 // 3.22.169.138:8080/registro

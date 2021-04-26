@@ -1,1 +1,98 @@
-<p>form1 works!</p>
+<div class="container">
+  <h2 class="text-center">Registro de Libros</h2>
+  <br />
+  <fieldset>
+    <form
+      novalidate="novalidate"
+      novalidate="novalidate"
+      role="form"
+      [formGroup]="form_books"
+    >
+      <div class="row">
+        <div class="col-md-5">
+          <label class="control-label control-label-xs"><b>Nombre</b></label>
+          <div class="form-group form-group-xs">
+            <div class="input-group input-group-xs">
+              <input
+                formControlName="name"
+                class="form-control"
+                type="text"
+                [ngClass]="{ 'is-invalid': (submitted ||f.name.touched) && f.name.errors }"
+              />
+              <span class="input-group-addon"><i class="fa fa-file"></i></span>
+            </div>
+            <div
+              *ngIf="((submitted ||f.name.touched) && f.name.errors)"
+              class="invalid-input"
+            >
+              <div *ngIf="f.name.errors.required">Name is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <label class="control-label control-label-xs"><b>Autor</b></label>
+          <div class="form-group form-group-xs">
+            <div class="input-group input-group-xs">
+              <input
+                formControlName="autor"
+                class="form-control"
+                type="text"
+                [ngClass]="{ 'is-invalid': (submitted ||f.autor.touched) && f.autor.errors }"
+              />
+              <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            </div>
+            <div
+              *ngIf="((submitted ||f.autor.touched) && f.autor.errors)"
+              class="invalid-input"
+            >
+              <div *ngIf="f.autor.errors.required">Author is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label class="control-label control-label-xs"><br /> </label>
+          <div class="form-group form-group-xs">
+            <div class="input-group input-group-xs">
+              <button (click)="existe()" class="btn btn-primary">
+                <i class="fa fa-spinner fa-spin" *ngIf="loading"></i> Registrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </fieldset>
+</div>
+<div class="container" style="margin-top:20px">
+  <table class="table table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Autor</th>
+        <!-- <th>Opciones</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of libros;let i=index">
+        <td>{{item.nombre}}</td>
+        <td>{{item.autor}}</td>
+        <!-- <td align="center">
+          <i
+            class="fa fa-edit text-primary"
+            title="Editar"
+            style="cursor:pointer"
+            (click)="editar(item)"
+          ></i>
+          &nbsp;
+          <i
+            class="fa fa-trash text-danger"
+            title="Eliminar"
+            style="cursor:pointer"
+            (click)="eliminar(item.id)"
+          >
+          </i>
+        </td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>

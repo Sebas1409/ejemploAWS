@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { DashModule } from './dash/dash.module';
+import { AppComponent } from '../app.component';
+import { DashModule } from './dash.module';
 import { RouterModule } from '@angular/router';
-import { route } from './route';
+import { route } from '../route';
 
 @NgModule({
   declarations: [
